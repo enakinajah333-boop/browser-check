@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Checking your browser...</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      margin-top: 15%;
-    }
-    .loader {
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #3498db;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-</head>
-<body>
-  <h3>Checking your browser before accessing vidoy.live...</h3>
-  <p>This process is automatic. Your browser will redirect to your requested content shortly.</p>
-  <p>Please allow up to 3 seconds...</p>
-  <div class="loader"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checking your browser...</title>
+    <script>
+      // Ambil parameter ?link= dari URL
+      const params = new URLSearchParams(window.location.search);
+      const target = params.get("link");
 
-  <script>
-    // Pindah ke vidoy.live setelah 3 detik
-    setTimeout(function() {
-      window.location.href = "https://vidoy.live";
-    }, 3000);
-  </script>
-</body>
+      // Kalau ada link, tunggu 3 detik lalu redirect
+      if (target) {
+        setTimeout(() => {
+          window.location.href = target;
+        }, 3000);
+      }
+    </script>
+    <style>
+      body {
+        background: #0d1117;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+      .loader {
+        width: 60px;
+        height: 60px;
+        border: 6px solid #333;
+        border-top: 6px solid #00ffcc;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader"></div>
+    <h2>Checking your browser...</h2>
+  </body>
 </html>
