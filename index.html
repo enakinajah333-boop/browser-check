@@ -18,3 +18,25 @@
       width: 40px;
       height: 40px;
       animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h3>Checking your browser before accessing vidoy.live...</h3>
+  <p>This process is automatic. Your browser will redirect to your requested content shortly.</p>
+  <p>Please allow up to 3 seconds...</p>
+  <div class="loader"></div>
+
+  <script>
+    // Pindah ke vidoy.live setelah 3 detik
+    setTimeout(function() {
+      window.location.href = "https://vidoy.live";
+    }, 3000);
+  </script>
+</body>
+</html>
